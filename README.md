@@ -65,15 +65,7 @@ order_to_pay = DATEDIFF(fact_order_prefrence[order_date], fact_order_prefrence[p
 sales-data-model/
 ├── README.md
 ├── data/
-│   └── dataset.xlsx
+│   └── Sales_Model.xlsx
 ├── powerbi/
 │   └── SalesModel.pbip
-└── docs/
-    └── model-diagram.png
 ```
-
-## How to Open
-
-1. `git clone https://github.com/YOUR-USERNAME/sales-data-model.git`
-2. Open `powerbi/SalesModel.pbip` in Power BI Desktop
-3. Refresh data
