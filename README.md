@@ -65,7 +65,7 @@ order_to_pay = DATEDIFF(fact_order_prefrence[order_date], fact_order_prefrence[p
 sales-data-model/
 ├── README.md
 ├── data/
-│   └── Sales_Model.xlsx
+│   └── dataset.xlsx
 ├── powerbi/
 │   └── SalesModel.pbip
 ```
