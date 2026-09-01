@@ -7,8 +7,7 @@ This project transforms 22 disconnected, flat spreadsheet tables into a governed
 
 The model consolidates fragmented customer, product, and order data into six clean dimension tables and six fact tables, replacing brittle text-based joins with surrogate keys and removing duplicate and placeholder records. It supports key business questions out of the box — total and active customers, order volume, revenue, and order-to-payment cycle time — and is structured to extend cleanly to additional metrics (campaign ROI, inventory turnover, delivery performance) without rework.
 
-Row-level security is built in, restricting each user's view to their assigned region. Two documented cleanup items (redundant auto-generated date tables and a couple of naming inconsistencies) are the only outstanding items before this is production-ready.
-
+Row-level security is built in, restricting each user's view to their assigned region. 
 
 ## Data Model
 
