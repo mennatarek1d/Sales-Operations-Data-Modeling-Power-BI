@@ -1,12 +1,14 @@
 # Sales-Operations-Data-Modeling-Power-BI
 Built a relational data model in Power BI by transforming multiple raw business tables into a structured analytical model with fact tables, dimensions, bridge tables, and optimized relationships.
-# Sales & Operations Data Model
 
-Power BI data modeling, covering customers, orders, sales, inventory, campaigns, and order-to-pay tracking.
+# Executive Summary
 
-## Data Sources
+This project transforms 22 disconnected, flat spreadsheet tables into a governed star-schema data model in Power BI, enabling reliable, self-service reporting across sales, customers, marketing, inventory, and order fulfillment.
 
-Raw tables imported directly from `dataset.xlsx`: `CUST_MASTER`, `Address`, `customer_contacts`, `user_details`, `products`, `subcategories`, `cities`, `ORDERS_2025`/`ORDERS_2026` (combined into `orders`), `order_line_items`, `shipments`, `INVOICES`, `payments`, `CAMPAIGN_LOG`, `campaign_skus`, `sales_targets`, `security`. A custom `channels` lookup table was also added (not in the original file) to map order channel codes to names.
+The model consolidates fragmented customer, product, and order data into six clean dimension tables and six fact tables, replacing brittle text-based joins with surrogate keys and removing duplicate and placeholder records. It supports key business questions out of the box — total and active customers, order volume, revenue, and order-to-payment cycle time — and is structured to extend cleanly to additional metrics (campaign ROI, inventory turnover, delivery performance) without rework.
+
+Row-level security is built in, restricting each user's view to their assigned region. Two documented cleanup items (redundant auto-generated date tables and a couple of naming inconsistencies) are the only outstanding items before this is production-ready.
+
 
 ## Data Model
 
@@ -27,6 +29,10 @@ Raw tables imported directly from `dataset.xlsx`: `CUST_MASTER`, `Address`, `cus
 - `fact_sales_target` — monthly revenue targets
 
 **Relationships:** all fact tables connect to dimensions as many-to-one on surrogate keys (`customer_id`, `product_key`, `flag_key`, `geo_key`, `campaign_key`), except `fact_sales` which has **two** links to `dim_geo` (ship-to and bill-to city) — only the bill-to one is active, ship-to is inactive to avoid ambiguity. `dim_customer` also links to `security` on `region` for row-level security by region.
+
+
+<img width="2360" height="920" alt="model-before-after" src="https://github.com/user-attachments/assets/589ee4f8-b10e-40b5-862a-96291f865c29" />
+
 
 ## Cleaning Steps (Power Query)
 
