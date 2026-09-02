@@ -1,13 +1,15 @@
 # Sales-Operations-Data-Modeling-Power-BI
 Built a relational data model in Power BI by transforming multiple raw business tables into a structured analytical model with fact tables, dimensions, bridge tables, and optimized relationships.
 
+---
 # Executive Summary
 Transformed 22 disconnected spreadsheet tables into a scalable **star-schema Power BI model** with six dimensions and six fact tables, using Power Query, surrogate keys, bridge tables, optimized relationships, and regional Row-Level Security. The resulting governed model consolidates sales, customer, inventory, marketing, and fulfillment data into a single source for reliable self-service reporting, enabling analysis of **revenue, orders, customers, campaign performance, inventory, and order-to-payment cycle time**.
 
-
+---
 ## Business Problem:
 The organization had 22 disconnected operational tables across customers, orders, products, inventory, campaigns, and payments. Reporting was difficult because data was duplicated, relationships were inconsistent, and there was no governed analytical model.
 
+---
 ## Data Model
 
 **Dimension tables:**
@@ -31,7 +33,7 @@ The organization had 22 disconnected operational tables across customers, orders
 
 <img width="2360" height="920" alt="model-before-after" src="https://github.com/user-attachments/assets/589ee4f8-b10e-40b5-862a-96291f865c29" />
 
-
+---
 ## Cleaning Steps (Power Query)
 
 - Combined `ORDERS_2025` and `ORDERS_2026` into one `orders` table
@@ -42,7 +44,7 @@ The organization had 22 disconnected operational tables across customers, orders
 - Unpivoted `inventory`'s monthly columns into one row per product per month
 - Split `campaign_skus`'s comma-separated SKU list into one row per SKU for the promotion-coverage bridge table
 - Built `fact_order_prefrence` by chaining orders → shipments → invoices → payments on their IDs
-
+---
 ## Key Measures & Calculated Columns
 
 ```
@@ -55,15 +57,13 @@ avg_shipping           = AVERAGE(fact_order_prefrence[order_to_pay])
 -- calculated column on fact_order_prefrence:
 order_to_pay = DATEDIFF(fact_order_prefrence[order_date], fact_order_prefrence[pay_date], DAY)
 ```
-
-
+---
 ## Repo Structure
 
 ```
 sales-data-model/
 ├── README.md
-├── data/
-│   └── dataset.xlsx
+├── dataset.xlsx
 ├── powerbi/
 │   └── SalesModel.pbip
 ```
