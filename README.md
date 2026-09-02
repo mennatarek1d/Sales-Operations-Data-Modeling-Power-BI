@@ -2,12 +2,11 @@
 Built a relational data model in Power BI by transforming multiple raw business tables into a structured analytical model with fact tables, dimensions, bridge tables, and optimized relationships.
 
 # Executive Summary
+Transformed 22 disconnected spreadsheet tables into a scalable **star-schema Power BI model** with six dimensions and six fact tables, using Power Query, surrogate keys, bridge tables, optimized relationships, and regional Row-Level Security. The resulting governed model consolidates sales, customer, inventory, marketing, and fulfillment data into a single source for reliable self-service reporting, enabling analysis of **revenue, orders, customers, campaign performance, inventory, and order-to-payment cycle time**.
 
-This project transforms 22 disconnected, flat spreadsheet tables into a governed star-schema data model in Power BI, enabling reliable, self-service reporting across sales, customers, marketing, inventory, and order fulfillment.
 
-The model consolidates fragmented customer, product, and order data into six clean dimension tables and six fact tables, replacing brittle text-based joins with surrogate keys and removing duplicate and placeholder records. It supports key business questions out of the box — total and active customers, order volume, revenue, and order-to-payment cycle time — and is structured to extend cleanly to additional metrics (campaign ROI, inventory turnover, delivery performance) without rework.
-
-Row-level security is built in, restricting each user's view to their assigned region. 
+## Business Problem:
+The organization had 22 disconnected operational tables across customers, orders, products, inventory, campaigns, and payments. Reporting was difficult because data was duplicated, relationships were inconsistent, and there was no governed analytical model.
 
 ## Data Model
 
